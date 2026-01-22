@@ -1,0 +1,210 @@
+
+@import url(https://fonts.googleapis.com/css?family=Leckerli+One);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+:root {
+  --color1: #64d3c3;
+  --color2: #fbf144;
+  --color3: #6a3696;
+  --color4: #8cc7b6;
+  --color5: #8c7c6c;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  background-color: var(--color1);
+}
+
+/* NAVBAR */
+.navbar {
+  width: 70rem;
+  margin: 5vw auto 0;
+}
+
+/* MAIN CONTAINER */
+.navbar-container {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  background-color: #3fa79a;
+  box-shadow: 0 0 19px 11px rgba(0,0,0,0.2);
+  perspective: 70rem;
+  position: relative;
+}
+
+/* MAIN ITEM */
+.navbar-item {
+  flex: 1;
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: var(--color3);
+  color: whitesmoke;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.6s ease;
+  
+}
+
+/* LABEL (BACK SIDE TEXT) */
+.navbar-item_label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+  background-color: var(--color2);
+  color: var(--color3);
+  transform: rotateY(180deg) scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+/* SUB MENU */
+.navbar-container_sub {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: var(--color4);
+  box-shadow: 0 0 19px 11px rgba(0,0,0,0.2);
+  transform: rotateY(180deg) scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.6s ease;
+}
+
+/* SUB ITEM */
+.navbar-item_sub {
+  padding: 1rem;
+  font-size: 1.8rem;
+  color: whitesmoke;
+  text-align: right;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.navbar-item_sub::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 120%;
+  width: 120%;
+  height: 100%;
+  background-color: var(--color2);
+  transform: skewX(-30deg);
+  transition: 0.3s ease;
+  z-index: -1;
+}
+
+.navbar-item_sub:hover::before {
+  left: -10%;
+}
+
+.navbar-item_sub:hover {
+  color: var(--color3);
+}
+
+/* HOVER EFFECTS */
+.navbar-item:hover {
+  transform: rotateY(180deg);
+}
+
+.navbar-item:hover > .navbar-item_label {
+  transform: rotateY(180deg) scaleY(1);
+  opacity: 1;
+}
+
+.navbar-item:hover > .navbar-container_sub {
+  transform: rotateY(180deg) scaleY(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+}
+h1, h2 { 
+  margin: 0; 
+  font-family: 'Leckerli One', cursive;
+  text-shadow: 0 2px rgba(0,0,0,.5);
+  
+  
+}
+
+.row {
+  max-width: 80%;
+  margin: 0 auto;
+ 
+}
+p {
+    display: block;
+    margin-block-start: 3em;
+    margin-block-end: 2em;
+    margin-inline-start: 150px;
+    margin-inline-end: 60px;
+    unicode-bidi: isolate;
+}
+
+.intro-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: table;
+  z-index: -1;
+  
+   &:before {
+       content: '';
+       position: absolute;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background: rgba(0,0,0,.3) !important;
+       z-index: 1;
+    }
+  
+  .bg-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: url('http://cdn.magdeleine.co/wp-content/uploads/2015/02/YS4_5968_69_70-2-3-1400x933.jpg') center center no-repeat;
+    background-size: cover;
+  }
+  
+  .header-content {
+    position: relative;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    z-index: 4;
+  }
+  
+}
+
+.content { 
+  height: 50vh;
+  padding: 50px;
+  background: #333 ;
+  margin-top: 50vh;
+}
